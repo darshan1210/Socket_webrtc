@@ -2,9 +2,12 @@ const { Server } = require("socket.io");
 
 const io = new Server(8000, {
     cors: {
-        origin: "*",
+        origin: "https://socket-client-phi.vercel.app", // Replace with your live frontend URL
+        methods: ["GET", "POST"], // Add the allowed methods
     },
 });
+
+console.log('Socket.IO server is running on port 8000');
 
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();
